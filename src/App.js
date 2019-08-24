@@ -1,7 +1,8 @@
 import React,{Component} from 'react';
 import {souMsapi} from "./api/movie"
 import {Route,HashRouter,Redirect,Switch} from "react-router-dom"
-import Home from "@pages/home"
+// import Home from "@pages/home"
+import Home from "@pages/category/find"
 export default class App extends Component {
   render() {
     return (
