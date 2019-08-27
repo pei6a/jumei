@@ -19,6 +19,10 @@ a { color:#666; text-decoration:none; }
 body,html,#root{
     height: 100%;
     overflow: hidden;
+    font-size:26.66vw;
+}
+#root{
+    font-size:0.12rem
 }
 
 

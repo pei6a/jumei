@@ -13,7 +13,7 @@
     transform: rotate(45deg);
     margin: 30px auto;
   }
-  p {
+  .loader p {
     display: inline-block;
     width: 107px;
     height: 107px;

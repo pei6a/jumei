@@ -1,8 +1,33 @@
-const proxy=require("http-proxy-middleware")
+const proxy=require('http-proxy-middleware')
 module.exports=(app)=>{
-    // 搜索
-    app.use(proxy("/msapi",{
-        target:"http://mobile.jumei.com",
-        changeOrigin:true
-    }))
+    app.use(
+        proxy(
+        '/rewrite',{
+            target:'http://h5.jumei.com',
+            changeOrigin:true,
+            pathRewrite:{'^/rewrite':''}
+        }
+    ));
+    app.use(
+        proxy(
+            '/api',{
+                target:'http://s.mobile.jumei.com',
+                changeOrigin:true
+            }
+    ));
+    app.use(
+        proxy(
+            '/msapi',{
+                target:'http://mobile.jumei.com',
+                changeOrigin:true
+            }
+    ));
+    app.use(
+        proxy(
+            '/index',{
+                target:'http://m.jumei.com',
+                changeOrigin:true
+            }
+    ));
+
 }
