@@ -1,9 +1,14 @@
-import Loadable from "react-loadable"
+import Loadable from 'react-loadable';
 import Loading from "@common/loading"
-const Home=Loadable({
-    loader:()=>import("./home"),
+const Seach = Loadable({
+    loader:()=>import("../pages/category/findpage"),
+    loading:Loading
+})
+const FindId = Loadable({
+    loader:()=>import("../pages/category/findid"),
     loading:Loading
 })
 export {
-    Home
+    Seach,
+    FindId
 }

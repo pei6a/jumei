@@ -5,4 +5,14 @@ module.exports=(app)=>{
         target:"http://mobile.jumei.com",
         changeOrigin:true
     }))
+    // 筛选
+    app.use(proxy("/search",{
+        target:"http://m.jumei.com",
+        changeOrigin:true
+    }))
+     // 详情
+    app.use(proxy("/product",{
+        target:"http://h5.jumei.com",
+        changeOrigin:true
+    }))
 }
