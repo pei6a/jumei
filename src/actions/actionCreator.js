@@ -1,7 +1,8 @@
 import {souMsapiActionType,handleFindshowActionType,handleChildValActionType,
     souMsapixuanActionType,handleFindValActionType,handlerClickIdActionType
 } from "./actionType"
-import {souMsapi,souMsapixuan,souMsapiId} from "../api/movie"
+import {souMsapi,souMsapixuan,souMsapiId,gloupApiItems} from "../api/movie"
+import {createAction} from "redux-actions";
 
 // 异步souMsapiAction
 export const souMsapiAction=(val)=>({
@@ -69,3 +70,26 @@ export const handlerClicksyncIdAction=(index,itemid,original_image,itemtype,jume
     }
 }
 
+
+export const selectedAction=createAction("SELECTEC_TYPE");
+
+export const itemsAction = createAction("ITEMS_TYPE",(val)=>val);
+
+//异步的action  gwcAsyncAction
+export const itemsAsyncAction = (id,type)=>{
+    return async (dispatch)=>{
+        let data = await gloupApiItems(id,type);
+        dispatch(itemsAction(data))
+    }
+}
+
+export const gwcAction = createAction("GWC_TYPE",(val)=>val);
+
+//异步的action
+export const gwcAsyncAction = (name,price,img)=>{
+    return async (dispatch)=>{
+        let data = await gloupApiItems(name,price,img);
+        console.log(data,333)
+        dispatch(gwcAction(data))
+    }
+}

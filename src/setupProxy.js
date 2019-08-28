@@ -15,4 +15,10 @@ module.exports=(app)=>{
         target:"http://h5.jumei.com",
         changeOrigin:true
     }))
+    //拼团
+    app.use(proxy("/yiqituan",{
+        target:"http://s.h5.jumei.com",
+        changeOrigin:true
+    }))
 }
+
