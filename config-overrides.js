@@ -3,7 +3,7 @@ const path=require("path");
 module.exports=override(
     addWebpackAlias({
         ["@"]:path.resolve(__dirname,"./src"),
-        ["@action"]:path.resolve(__dirname,"./src/actions"),
+        ["@actions"]:path.resolve(__dirname,"./src/actions"),
         ["@api"]:path.resolve(__dirname,"./src/api"),
         ["@common"]:path.resolve(__dirname,"./src/common"),
         ["@components"]:path.resolve(__dirname,"./src/components"),
