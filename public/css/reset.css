@@ -10,7 +10,7 @@ address, caption, cite, code, dfn, th, var { font-style:normal; font-weight:norm
 
 ul, ol ,li{ list-style:none; }
 
-body { color:#333; font:12px PingFangSC-Regular; background:#fff;}
+body { color:#333; font:12px  "Helvetica Neue",Helvetica,STHeiTi,sans-serif;; background:#fff;}
 
 a { color:#666; text-decoration:none; }
 /*清除浮动*/
@@ -21,11 +21,11 @@ body,html,#root{
     overflow: hidden;
     font-size: 26.66vw;
     padding:0;
-    margin:0
+    margin:0;
+    color: #424242
 }
 #root{
     font-size:0.14rem;
-    
 }
 
 
