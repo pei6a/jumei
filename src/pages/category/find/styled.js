@@ -18,14 +18,29 @@ export const FindBackground=styled.div`
         border-bottom:1px solid #ddd;
         display: flex;
         justify-content:space-around;
-        align-items: center
+        align-items: center;
+        color: #999
+        position: absolute;
+        top:0
     }
     .Seek{
         width:2.58rem;
         height:0.3rem;
-        background:#ddd
+        background:#f5f5f5;
+        display: flex;
+        align-items: center;
+        border-radius:0.15rem; 
     }
     .Seek>span{
-        
+        display: block;
+        padding:0 0.05rem
+    }
+    .Seek>input{
+        outline:none;
+        border:none;
+        height:0.25rem;
+        width:2.1rem;
+        background:#f5f5f5;
+        color: #999
     }
 `

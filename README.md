@@ -8,9 +8,11 @@
 - `styled-components`
 - `react-loadable`
 - `whatwg-fetch`
+-`Ant Design Mobile of React`
 
 ```javascript
-yarn add react-router-dom redux react-redux redux-thunk redux-actions styled-components react-loadable whatwg-fetch
+yarn add react-router-dom redux react-redux redux-thunk redux-actions styled-components react-loadable whatwg-fetch 
+cnpm install antd-mobile -S
 ```
 
 # 开发环境配置
