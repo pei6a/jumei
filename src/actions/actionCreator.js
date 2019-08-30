@@ -1,7 +1,10 @@
 import {souMsapiActionType,handleFindshowActionType,handleChildValActionType,
-    souMsapixuanActionType,handleFindValActionType,handlerClickIdActionType
+    handleFindValActionType,handlerClickIdActionType,dianpusyncActionType,
+    handleDianpuNavActionType,handledianpuDataActionType,
+    handleDianfilterActionType,handleCilchfiterindexActionType,handlershoppingActionType,
+    clickshoppingDelActionType,clickshoppingAddActionType
 } from "./actionType"
-import {souMsapi,souMsapixuan,souMsapiId,gloupApiItems} from "../api/movie"
+import {souMsapi,souMsapixuan,souMsapiId,gloupApiItems,dianpu} from "../api/movie"
 import {createAction} from "redux-actions";
 
 // 异步souMsapiAction
@@ -26,19 +29,7 @@ export const handleChildValAction=(index1)=>({
     type:handleChildValActionType,
     index1
 })
-// // 异步souMsapixuanAsyncAction
-// export const souMsapixuanAction=(val,category_id)=>({
-//     type:souMsapixuanActionType,
-//     value:val,
-//     category_id
-// })
-// export const souMsapixuanAsyncAction=()=>{
-//     return async(dispatch)=>{
-//         let data=await souMsapixuan()
-//         dispatch(souMsapixuanAction(data))
-        
-//     }
-// }
+
 
 export const handleFindValAction=(index,data)=>({
     type:handleFindValActionType,
@@ -69,6 +60,72 @@ export const handlerClicksyncIdAction=(index,itemid,original_image,itemtype,jume
         dispatch(handlerClickIdAction(index,itemid,original_image,itemtype,jumei_price,market_price,data))
     }
 }
+// // 异步dianpusyncAction//店铺接口
+export const dianpuAction=(data)=>({
+    type:dianpusyncActionType,
+    data
+})
+export const dianpusyncAction=()=>{
+    return async(dispatch)=>{
+        
+        let data=await dianpu()
+        // console.log(dianpusort,1111)
+        dispatch(dianpuAction(data))
+    }
+}
+//店铺接口2
+export const handleDianpuNavAction=(index,data1,dianpusort)=>({
+    type:handleDianpuNavActionType,
+    data1,
+    index,
+    dianpusort
+
+})
+export const handleDianpusyncNavAction=(index,dianpusort)=>{
+    return async(dispatch)=>{
+        let data1=await dianpu(dianpusort)
+        dispatch(handleDianpuNavAction(index,data1,dianpusort))
+    }
+}
+//筛选
+export const handleDianfilterAction=(index)=>({
+    type:handleDianfilterActionType,
+    index
+})
+export const handleCilchfiterindexAction=(index1)=>({
+    type:handleCilchfiterindexActionType,
+    index1
+})
+
+
+export const handledianpuDataAction=(index,short_name,image_url,jumei_price,market_price)=>({
+    type:handledianpuDataActionType,
+    index,
+    short_name,
+    image_url,
+    jumei_price,
+    market_price
+})
+
+//购物车
+export const handlershoppingAction=(short_name)=>({
+    type:handlershoppingActionType,
+    short_name
+})
+//shopping  NUM--
+export const clickshoppingDelAction=(index)=>({
+    type:clickshoppingDelActionType,
+    index
+})
+// NUM++
+export const clickshoppingAddAction=(index)=>({
+    type:clickshoppingAddActionType,
+    index
+})
+
+
+
+
 
 
 export const selectedAction=createAction("SELECTEC_TYPE");

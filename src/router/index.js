@@ -1,4 +1,4 @@
-import { HomePage, Tuan, Cart, My,Login,Detail,Shop,Search,Seach,FindId,Find } from "@pages"
+import { HomePage, Tuan, Cart, My,Login,Detail,Shop,Search,Seach,FindId,Find,Storedian,Storedianfilter,Goshoping } from "@pages"
 export const tabBarRoute = [
     {
         path: '/home',
@@ -96,6 +96,33 @@ export const noTabBarRoute=[
             flag: false,
         },
         name: '详情',
+
+    },
+    {
+        path: "/dianpu",
+        component: Storedian,
+        meta: {
+            flag: false,
+        },
+        name: '店铺',
+
+    },
+    {
+        path: "/dianpufilter",
+        component: Storedianfilter,
+        meta: {
+            flag: false,
+        },
+        name: '店铺筛选',
+
+    },
+    {
+        path: "/goshopping",
+        component: Goshoping,
+        meta: {
+            flag: false,
+        },
+        name: '购物车',
 
     }
 ]

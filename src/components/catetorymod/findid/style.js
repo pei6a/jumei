@@ -5,6 +5,10 @@ export const FindIdContentstyle=styled.div`
     position: absolute;
     bottom:0.5rem;
     overflow-y: auto;
+    .findidHeaderBox{
+        width:100%;
+        height:100%;
+    }
     .findidHeader{
         width:100%;
         height:1rem;
@@ -55,6 +59,11 @@ export const FindIdContentstyle=styled.div`
     }
 
     //内容
+    .findidHeaderCenterbox{
+        width:100%;
+        // height:100%;
+
+    }
     .findidHeaderCenterimg,.findidHeaderCenterimg>img{
         width:100%;
         height:3.75rem;

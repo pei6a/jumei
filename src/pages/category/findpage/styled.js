@@ -42,7 +42,7 @@ export const Findpagebox=styled.div`
     }
     .Findpagelistul{
         width:100%;
-        height:100%;
+        // height:100%;
     }
     .Findpagelistli{
         width:100%;

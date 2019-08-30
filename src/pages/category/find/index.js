@@ -11,11 +11,14 @@ export default class Find extends Component{
                             <span className="iconfont icon-magnifier"></span>
                             <input type="text"/>
                         </div>
-                        <div>返回</div>
+                        <div onClick={this.handleFindback.bind(this)}>返回</div>
                     </div>
                     <AccordionExmple/>
                 </div>
             </FindBackground>
         )
+    }
+    handleFindback(){
+        this.props.history.goBack()
     }
 }

@@ -7,6 +7,12 @@ export const souMsapixuan=(category_id=62,page=1,ajax="get")=>http.get("/search/
 
 export const souMsapiId=(item_id="351998",type="global_mall")=>http.get("/product/ajaxStaticDetail?",{item_id:item_id,type:type})
 
+export const dianpu=(sort="",category_id="",price_range="",function_id="",series_id="",is_sellable="",timestamp=1566995546688,locateDM=0,show_comment=0,is_filter_coutuan=0)=>http.get("/pop/ajaxGetAllProduct?merchant_id=&search_type=15&brand_id=&store_id=4296&page=1&",{
+    sort:sort,category_id:category_id,price_range:price_range,function_id:function_id,series_id:series_id,is_sellable:is_sellable,timestamp:timestamp,locateDM:locateDM,show_comment:show_comment,is_filter_coutuan:is_filter_coutuan
+})
+
+
+
 
 export const gloupApi=(page=1,per_page=20)=>http.get("/yiqituan/tab_list?tab=coutuan_home&",{page,per_page});
 

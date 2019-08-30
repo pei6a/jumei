@@ -49,6 +49,14 @@ module.exports=(app)=>{
                 changeOrigin:true
             }
     ));
+    app.use(
+        proxy(
+            "/pop",{
+                target:"http://h5.jumei.com",
+                changeOrigin:true
+            }
+        )
+    )
 }
 
     
