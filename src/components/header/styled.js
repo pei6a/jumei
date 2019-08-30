@@ -2,8 +2,8 @@ import styled from 'styled-components'
 export const HeadWrapper = styled.div`
     width:100%;
     height:0.44rem;
-    position:absolute;
-    top:0;
+    // position:absolute;
+    // top:0;
     line-height:0.44rem;
     font-size:0.14rem;
     display:flex;

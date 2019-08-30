@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-export default class Tuan extends Component {
+export default class componentName extends Component {
   render() {
     return (
-      <div> 团 </div>
+      <div> textInComponent </div>
     );
   }
 }

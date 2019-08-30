@@ -13,13 +13,6 @@ export const HomePageListApi = (
     page_key, card_id, page, platform, client_v, user_tag_id, source, site
 }
 )
-// http://h5.jumei.com/index/ajaxDealactList?card_id=4057&client_v=1&page=1&platform=wap&type=formal&page_key=
-// http://s.mobile.jumei.com/api/v1/deal/dealactlist?
-// card_id=4057&page=2&page_key=1566786480&platform=wap&client_v=1.0&user_tag_id=0&source=touch&site=bj
-// http://s.mobile.jumei.com/api/v1/deal/dealactlist?card_id=4057&page=2&page_key=1566804240&platform=wap&client_v=1.0&user_tag_id=0&source=touch&site=bj
-
-// 即将上新/index/ajaxDealactList?card_id=4057&client_v=1&page=1&platform=wap&type=pre&page_key=
-// http://s.mobile.jumei.com/api/v1/deal/dealactlist?card_id=4057&page=2&page_key=1566816360&platform=wap&client_v=1.0&user_tag_id=0&source=touch&site=bj
 export const HomePagePreApi = (
     page_key = '1566818760',
     card_id = 4057,
@@ -66,4 +59,43 @@ export const detailDynamicApi = (
 ) => http.get('/rewrite/product/ajaxDynamicDetail?', {
     item_id,
     type
+})
+
+
+// http://h5.jumei.com/s/store/5172.html?fp=goods_detail&fpa=navigation
+// 店铺
+export const shopAllGoodsApi=(
+    page= 1,
+    merchant_id='',
+    search_type=14,
+    brand_id= '',
+    store_id= 5172,
+    
+    sort= '',
+    category_id='', 
+    price_range= '',
+    function_id= '',
+    series_id= '',
+    is_sellable= '',
+    timestamp='1566959438805',
+    locateDM= 0,
+    show_comment= 0,
+    is_filter_coutuan= 0
+)=>http.get('/rewrite/pop/ajaxGetAllProduct?',{
+    page,
+    merchant_id,
+    search_type,
+    brand_id,
+    store_id,
+
+    sort,
+    category_id, 
+    price_range,
+    function_id,
+    series_id,
+    is_sellable,
+    timestamp,
+    locateDM,
+    show_comment,
+    is_filter_coutuan
 })

@@ -15,10 +15,11 @@ export default class Global extends Component {
           <li onClick={this.goToDetailHanlder.bind(this)}>
             <div className='item_left'>
               <img className='item_img' 
-              src='http://p0.jmstatic.com/banner/area/000/000/020.jpg' alt='' />
+              src='http://mp6.jmstatic.com/product/004/985/4985836_std/4985836_1000_1000.jpg?v=1566205443&imageView2/2/w/264/q/90' alt='' />
             </div>
             <div className='item_right'>
-              <p className='item_title'>对对对对对la啦啦啦啦啦啦啦啦绿对多多多</p>
+              <p className='item_title'>
+              Fenty Beauty 闪闪身体高光 毛毛球散粉 10.5g</p>
               <p className='item_price'>￥<b>59</b><span>￥99</span></p>
             </div>
           </li>

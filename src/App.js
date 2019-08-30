@@ -11,7 +11,7 @@ export default class App extends Component {
   render() {
     return (
         <Switch>
-          <Redirect from='/' to='/home' exact />
+          <Redirect from='/' to='/home/index' exact />
           <Route path="/gloup" component={Gloup}/>
           <Route path="/items/:id/:type" component={Items}/>
           <Route path="/gwc/:name/:price/:img" component={Gwc}/>

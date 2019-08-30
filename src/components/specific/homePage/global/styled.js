@@ -3,7 +3,7 @@ export const HomeWrapperGlobal = styled.div`
 width:100%;
 height:100%;
 position:relative;
-top:0.44rem;
+// top:0.88rem;
 .deals-content-header{
     width:100%;
     height:0.4rem;

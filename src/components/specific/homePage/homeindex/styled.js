@@ -1,9 +1,6 @@
 import styled from 'styled-components'
 export const HomeWrapperThree = styled.div`
 width:100%;
-height:100%;
-position:relative;
-top:0.44rem;
 .home_title{
     width：100%；
     height:0.44rem;
@@ -22,8 +19,15 @@ top:0.44rem;
     }
 }
 .homeItems{
-    width:100%;
-    height:90%;
+    height:100%;
+    .item_pre>li{
+        width:100%
+        height:1.3rem;
+        img{
+            width:100%
+            height:1.3rem; 
+        }
+    }
     .item_nowOne>li{
         position:relative;
         width:100%;
@@ -71,7 +75,7 @@ top:0.44rem;
                 color:#999;
             }
         }
-        }
+        
     }
     .item_nowTwo>li{
         width:100%
@@ -81,13 +85,5 @@ top:0.44rem;
             height:1.3rem; 
         }
     }
-    .item_pre>li{
-        width:100%
-        height:1.3rem;
-        img{
-            width:100%
-            height:1.3rem; 
-        }
-    }
-}
+
 `

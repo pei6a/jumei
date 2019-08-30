@@ -1,11 +1,9 @@
 import styled from 'styled-components'
 export const HomeContentWrapper = styled.div`
-    position:absolute;
     width:100%;
-    // height:100%;
     .homeSearch{
         position:relative;
-        top:0.44rem;
+        top:0rem;
         width:100%;
         height:0.45rem;
         display:flex;
@@ -37,15 +35,14 @@ export const HomeContentWrapper = styled.div`
             }
         }
     }
-    .homeNav{
-        position:relative;
-        top:0.44rem;
+    .navVsContent{
         width:100%;
-        height:0.44rem;
-        border-bottom:1px solid #ccc;
-        ul{
+        border-bottom:1px solid #fff;
+        .homeNav{
             width:100%;
             height:0.44rem;
+            position:sticky;
+            top:0;
             display:flex;
             justify-content:space-around;
             align-items:center;

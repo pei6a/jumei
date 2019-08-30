@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { HomeWrapperThree } from './styled'
 import { Link } from 'react-router-dom'
-// import { HomePageListApi } from '../../../../api/home_api/home_api'
 import { mapStateToProps, mapDispatchProps } from './connect'
 import { connect } from 'react-redux';
 class HomeIndex extends Component {
@@ -10,19 +9,42 @@ class HomeIndex extends Component {
     this.state = {
       toggle_Ten: 1,
       styled_now: 2,
-      item_list: []
+      item_list: [],
+      img_list:[],
+      list_item_pre:['http://mp5.jmstatic.com//jmstore/image/000/008/8199_std/5d5e08e742872_2048_710.jpg?1566890556&imageView2/2/w/320/q/90',
+      'http://mp6.jmstatic.com//jmstore/image/000/006/6845_std/5d637801ce503_2048_710.jpg?1567044787&imageView2/2/w/800/q/90',
+      'http://mp5.jmstatic.com//jmstore/image/000/008/8252_std/5d5f895847f72_2048_710.jpg?1566547399&imageView2/2/w/320/q/90',
+      'http://mp5.jmstatic.com//jmstore/image/000/008/8072_std/5d5e688de24eb_2048_710.jpg?1566468576&imageView2/2/w/800/q/90',
+      'http://mp5.jmstatic.com//jmstore/image/000/008/8252_std/5d5f895847f72_2048_710.jpg?1566547399&imageView2/2/w/320/q/90',
+      'http://mp5.jmstatic.com//jmstore/image/000/008/8072_std/5d5e688de24eb_2048_710.jpg?1566468576&imageView2/2/w/800/q/90',
+      'http://mp5.jmstatic.com//jmstore/image/000/008/8252_std/5d5f895847f72_2048_710.jpg?1566547399&imageView2/2/w/320/q/90']
     }
     this.toggleOClickHanlder = this.toggleOClickHanlder.bind(this)
     this.toggleTClickHanlder = this.toggleTClickHanlder.bind(this)
   }
   componentDidMount() {
-    this.props.getList()
-
+    if(sessionStorage.getItem('item_list')){
+      this.setState({
+        item_list:JSON.parse(sessionStorage.getItem('item_list'))
+      })
+    }else{
+      this.props.getList()
+    }
+    
   }
+  componentWillUpdate(newProps,newState){
+    if(newProps.homeNowGoods.item_list){
+      sessionStorage.setItem('item_list',JSON.stringify(newProps.homeNowGoods.item_list))
+      newState.item_list=newProps.homeNowGoods.item_list
+    }
+    
+  }
+
   render() {
-    let { toggle_Ten, styled_now } = this.state;
-    let { item_list } = this.props.homeNowGoods;
-    if(!item_list) item_list=[] 
+    let { toggle_Ten, styled_now,item_list} = this.state;
+    // let { item_list } = this.props.homeNowGoods;
+    // if(!item_list) item_list=[] 
+  
     return (
       <HomeWrapperThree>
         <div className='home_title'>
@@ -65,9 +87,14 @@ class HomeIndex extends Component {
 
           <ul className='item_pre'
             style={{ display: toggle_Ten === 2 ? 'block' : 'none' }}>
-            <li>
-              <img src='http://mp5.jmstatic.com//jmstore/image/000/008/8072_std/5d5e688de24eb_2048_710.jpg?1566468576&imageView2/2/w/800/q/90' alt='' />
-            </li>
+            {
+              this.state.list_item_pre.map((item,index)=>(
+             <li key={index}>
+              <img src={item} alt='' />
+            </li>               
+              ))
+            }
+
           </ul>
 
         </div>
@@ -81,7 +108,7 @@ class HomeIndex extends Component {
     })
   }
   toggleTClickHanlder() {
-    this.props.getList('1566904560')
+    this.props.getList('1566978240')
     this.setState({
       toggle_Ten: 2
     })

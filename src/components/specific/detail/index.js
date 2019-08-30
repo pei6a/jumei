@@ -20,7 +20,6 @@ export default class Detail extends Component {
     );
   }
   handleDetail(val) {
-    console.log(val)
     this.setState({
       title: val
     })

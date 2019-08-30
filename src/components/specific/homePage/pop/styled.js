@@ -3,7 +3,7 @@ export const HomeWrapperPop = styled.div`
 width:100%;
 height:100%;
 position:relative;
-top:0.44rem;
+// top:0.88rem;
 a{
     width:100%;
     height:2.45rem;
@@ -27,6 +27,7 @@ a{
         display:flex;
         justify-content:space-around;
         align-items:center;
+        margin-bottom:0.1rem;
         .left_info{
             height:0.31rem;
             padding-top:0.02rem;

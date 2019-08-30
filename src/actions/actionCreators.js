@@ -1,5 +1,7 @@
-import {homeIndexNowType,homeIndexPreType,homeSearchType,detailPageType}from './actionTypes'
-import {HomePageListApi,HomePagePreApi,searchApi,detailApi,detailDynamicApi} from '../api/home_api/home_api'
+import {homeIndexNowType,homeIndexPreType,homeSearchType,
+    detailPageType,shopAllGoodsPage,shopFilterType}from './actionTypes'
+import {HomePageListApi,HomePagePreApi,searchApi,detailApi,
+    detailDynamicApi,shopAllGoodsApi} from '../api/home_api/home_api'
 // 上新
 export const homeIndexNowAction=(val)=>({
     type:homeIndexNowType,
@@ -47,5 +49,29 @@ export const detailAsyncPreAction=(item_id,type)=>{
         let dataTwo=await detailDynamicApi(item_id,type)
         
         dispatch(detailAction(data,dataTwo))
+    }
+}
+
+//店铺全部商品
+export const shopAllGoodsAction=(val)=>(
+    {
+    type:shopAllGoodsPage,
+    value:val,
+})
+export const shopAllGoodsAsyncAction=(goods,page)=>{
+    return async (dispatch)=>{
+        if(goods || page){
+            let data=await shopAllGoodsApi(page)
+            if(data.data.data.rows){
+                for(var i=0;i<goods.length;i++){
+                data.data.data.rows.push(goods[i])
+            }
+            dispatch(shopAllGoodsAction(data))    
+            }            
+        }
+        else{
+            let data=await shopAllGoodsApi()
+            dispatch(shopAllGoodsAction(data))
+        }
     }
 }

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import {DetailTabbarWrapper} from './styled'
-export default class componentName extends Component {
+import {withRouter} from 'react-router-dom'
+class componentName extends Component {
     render() {
         return (
             <DetailTabbarWrapper>
-                <div className='shop'>
+                <div className='shop' onClick={this.goToShopHandler.bind(this)}>
                     <i className='iconfont'>&#xe61d;</i>
                     <span>店铺</span>
                 </div>
@@ -17,4 +18,8 @@ export default class componentName extends Component {
             </DetailTabbarWrapper>
         );
     }
+    goToShopHandler(){
+        this.props.history.push('/shop')
+    }
 }
+export default withRouter(componentName)

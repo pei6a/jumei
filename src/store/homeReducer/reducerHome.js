@@ -12,7 +12,6 @@ export const homeReducer=handleActions({
 },
 [homeIndexPreType]:(state,action)=>{
     let homePreState=JSON.parse(JSON.stringify(state))
-    console.log(action,888)
     homePreState.homePreGoods={...action.value}
     return homePreState
 

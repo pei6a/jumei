@@ -7,12 +7,15 @@ class Header extends Component {
       <HeadWrapper>
         <span className='iconfont' onClick={this.backHandler.bind(this)}>&#xe618;</span>
         <div>{this.props.title}</div>
-        <span></span>
+        <span onClick={this.goToHomeHandler.bind(this)}></span>
       </HeadWrapper>
     );
   }
   backHandler(){
     this.props.history.goBack()
+  }
+  goToHomeHandler(){
+    this.props.history.push('/home/index')
   }
 }
 export default withRouter(Header)

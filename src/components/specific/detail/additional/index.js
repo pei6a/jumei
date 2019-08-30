@@ -1,4 +1,4 @@
-import { Carousel, WhiteSpace, WingBlank } from 'antd-mobile';
+import { Carousel } from 'antd-mobile';
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
@@ -20,11 +20,11 @@ class DetailContent extends React.Component {
     let { item_id, type,name } = url.parse(this.props.location.search, true).query
     this.props.getDetail(item_id, type)
     this.props.handleTitle(name)
-    setTimeout(() => {
-      this.setState({
-        data: ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI'],
-      });
-    }, 100);
+    // setTimeout(() => {
+    //   this.setState({
+    //     data: ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI'],
+    //   });
+    // }, 100);
   }
   componentWillUpdate(newProps, newState) {
     if (newProps.detailResult.data) {
@@ -38,46 +38,34 @@ class DetailContent extends React.Component {
       
     }
   }
-  componentDidUpdate() {
-    if (this.state.slideIndex !== this.state.data.length - 1) {
-      /* eslint react/no-did-update-set-state: 0 */
-      this.setState({ slideIndex: this.state.data.length - 1 });
-    }
-  }
+  // componentDidUpdate() {
+  //   if (this.state.slideIndex !== this.state.data.length - 1) {
+  //     /* eslint react/no-did-update-set-state: 0 */
+  //     this.setState({ slideIndex: this.state.data.length - 1 });
+  //   }
+  // }
   render() {
     let {name}=this.state.detailDesc
     
     return (
-      <DetailWrapStyle >
-        <WingBlank>
-          <WhiteSpace />
+      <DetailWrapStyle >  
           <Carousel
             autoplay={false}
             infinite
-            selectedIndex={this.state.slideIndex}
-            beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
-            afterChange={index => console.log('slide to', index)}
           >
             {this.state.data.map((val, index) => (
-              <a
-                key={val + index}
-                href="javaScript:void(0)"
-                style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
-              >
-                <img
+                <img key={index}
                   src={val}
                   alt=""
                   style={{ width: '100%', verticalAlign: 'top' }}
                   onLoad={() => {
-                    // fire window resize event to change height
                     window.dispatchEvent(new Event('resize'));
                     this.setState({ imgHeight: 'auto' });
                   }}
                 />
-              </a>
             ))}
           </Carousel>
-        </WingBlank>
+     
         <div className="price_info">
           <span className="cur_price">￥39</span>
           <del className="cost_price">￥299</del>
