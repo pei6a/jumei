@@ -44,6 +44,18 @@ const FindId=Loadable({
     loader:()=>import('../pages/category/findid'),
     loading:Loading
 })
+const Storedian=Loadable({
+    loader:()=>import('../pages/category/dianpu'),
+    loading:Loading
+})
+const Storedianfilter=Loadable({
+    loader:()=>import('../pages/category/xuan'),
+    loading:Loading
+})
+const Goshoping=Loadable({
+    loader:()=>import('../pages/category/goshopping'),
+    loading:Loading
+})
 export{
     HomePage,
     Tuan,
@@ -55,5 +67,8 @@ export{
     Search,
     Find,
     Seach,
-    FindId
+    FindId,
+    Storedian,
+    Storedianfilter,
+    Goshoping
 }

@@ -3,7 +3,8 @@ import { connect } from "react-redux"
 import { mapStateToProps, mapDispatchToProps } from "../find/mapStore"
 import { souMsapixuan } from "../../../api/movie"
 import { Findpagebox } from "./styled"
-import {Link}from "react-router-dom"
+import {Link}from "react-router-dom";
+import BScrollComponent from "@common/bscroll";
 class FindPage extends Component {
     constructor() {
         super()
@@ -35,7 +36,7 @@ class FindPage extends Component {
                         {
                             findpagelist.map((item, index) => (
                                 <li key={index} onClick={this.handleFindClick.bind(this, index)}
-                                    className={handleFindcolor==index ?"Findpageli":""}
+                                    className={handleFindcolor===index ?"Findpageli":""}
                                 >
                                     <span>{item}</span>
                                     <span className="iconfont icon-xiasanjiao"></span>
@@ -68,6 +69,7 @@ class FindPage extends Component {
                         }
 
                     </ul>
+                    <BScrollComponent ref="bscroll">
                     <ul className="Findpagelistul">
                         {
                             findpagelist_list.map((item, index) => (
@@ -76,7 +78,7 @@ class FindPage extends Component {
                                     onClick={this.props.handlerClickId.bind(this,index,item.item_id,item.original_image,item.type,item.jumei_price,item.market_price)}
                                     >
                                         <div className="Findpagelistimgbox">
-                                            <img src={item.original_image} />
+                                            <img src={item.original_image} alt=""/>
                                         </div>
                                         <div className="Findpagelistrightbox">
                                             <div className="Findpagelisttop">{item.middle_name}</div>
@@ -92,6 +94,7 @@ class FindPage extends Component {
                             ))
                         }
                     </ul>
+                    </BScrollComponent>
                 </div>
             </Findpagebox>
         )
@@ -112,8 +115,8 @@ class FindPage extends Component {
             case 2:
                 indx = 7;
                 break;
+            
         }
-        // let {category_id} = this.props
         this.setState({
             handleFindindex: indx,
             handleFindcolor:index,
@@ -121,15 +124,8 @@ class FindPage extends Component {
          
         })
     }
-    // handleFindcatgory(index2){
-    //     console.log(index2)
-    //     let category_id1=this.state.findpagecategory[index2].id
-    //     console.log(this.state.findpagecategory[index2].id)
-
-    // }
+    
     async componentDidMount() {
-        // let {findpagelist_list} =this.state
-        // console.log(this.props.category_data,1)
         this.category_id = this.props.match.params.category_id
         let data = await souMsapixuan(this.category_id, 1, "get")
         let { findpagecategory, findpagefilter, findpagefunction } = this.state
