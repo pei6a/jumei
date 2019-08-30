@@ -1,4 +1,19 @@
-import { HomePage, Tuan, Cart, My,Login,Detail,Shop,Search,Seach,FindId,Find } from "@pages"
+import {
+        HomePage,
+        Gloup,
+        Gwc,
+        My,
+        Login,
+        Detail,
+        Shop,
+        Search,
+        Seach,
+        FindId,
+        Find,
+        Store,
+        Items,
+        Screen
+    } from "@pages"
 export const tabBarRoute = [
     {
         path: '/home',
@@ -10,19 +25,19 @@ export const tabBarRoute = [
         icon: '\ue6a5'
     },
     {
-        path: '/tuan',
-        component: Tuan,
+        path: '/gloup',
+        component: Gloup,
         meta: {
             flag: true
         },
         name: '拼团',
         icon: '\ue7ed'
-    },    
+    },
     {
-        path: '/cart',
-        component: Cart,
+        path: "/gwc/:name/:price/:img",
+        component: Gwc,
         meta: {
-            flag: false
+            flag: true
         },
         name: '购物车',
         icon: '\ue673'
@@ -45,7 +60,7 @@ export const noTabBarRoute=[
         meta: {
             flag: false,
         },
-        name: '登录',
+        name: '登录'
     },
     {
         path: '/detail',
@@ -53,7 +68,7 @@ export const noTabBarRoute=[
         meta: {
             flag: false,
         },
-        name: '详情页',
+        name: '详情页'
     },
     {
         path: '/shop',
@@ -61,7 +76,7 @@ export const noTabBarRoute=[
         meta: {
             flag: false,
         },
-        name: '店铺',
+        name: '店铺'
     },
     {
         path: '/search',
@@ -69,7 +84,7 @@ export const noTabBarRoute=[
         meta: {
             flag: false,
         },
-        name: '搜索页',
+        name: '搜索页'
     },
     {
         path: "/find",
@@ -77,7 +92,7 @@ export const noTabBarRoute=[
         meta: {
             flag: false,
         },
-        name: '搜素页',
+        name: '搜素页'
 
     },
     {
@@ -86,7 +101,7 @@ export const noTabBarRoute=[
         meta: {
             flag: false,
         },
-        name: '分类',
+        name: '分类'
 
     },
     {
@@ -95,8 +110,32 @@ export const noTabBarRoute=[
         meta: {
             flag: false,
         },
-        name: '详情',
+        name: '详情'
 
+    },
+    {
+        path: "/store/:ids",
+        component:Store,
+        meta: {
+            flag: false,
+        },
+        name: '旗舰店'
+    },
+    {
+        path: "/items/:id/:type",
+        component:Items,
+        meta: {
+            flag: false,
+        },
+        name: '详情页'
+    },
+    {
+        path: "/screen",
+        component:Screen,
+        meta: {
+            flag: false,
+        },
+        name: '筛选'
     }
 ]
 export const routeConfig=tabBarRoute.concat(noTabBarRoute)

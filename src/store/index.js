@@ -3,17 +3,18 @@ import reduxThunk from "redux-thunk";
 import sou from "./reducers/sou";
 import gloup from './reducers/gloup';
 import gwc from './reducers/gwc';
+import stores from './reducers/store';
 import {homeReducer} from './homeReducer/reducerHome'
 import {searchReducer} from './searchReducer/search'
 import {detailReducer} from './detailReducer/detailRe'
 const reducer=combineReducers({
-    
     gloup,
     gwc,
     homeReducer,
     searchReducer,
     detailReducer,
-    sou
+    sou,
+    stores
 })
 const store=createStore(reducer,applyMiddleware(reduxThunk))
-export default store
+export default store;

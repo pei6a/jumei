@@ -4,12 +4,12 @@ const HomePage=Loadable({
     loader:()=>import('./home/homePage/index.js'),
     loading:Loading
 })
-const Tuan=Loadable({
-    loader:()=>import('./tuan/index'),
+const Gloup=Loadable({
+    loader:()=>import('../pages/gloup'),
     loading:Loading
 })
-const Cart=Loadable({
-    loader:()=>import('./cart/index.js'),
+const Gwc=Loadable({
+    loader:()=>import('../pages/gwc'),
     loading:Loading
 })
 const My=Loadable({
@@ -44,10 +44,22 @@ const FindId=Loadable({
     loader:()=>import('../pages/category/findid'),
     loading:Loading
 })
+const Store=Loadable({
+    loader:()=>import('../pages/store'),
+    loading:Loading
+})
+const Items=Loadable({
+    loader:()=>import('../pages/items'),
+    loading:Loading
+})
+const Screen=Loadable({
+    loader:()=>import('../pages/screen'),
+    loading:Loading
+})
 export{
     HomePage,
-    Tuan,
-    Cart,
+    Gloup,
+    Gwc,
     My,
     Login,
     Detail,
@@ -55,5 +67,8 @@ export{
     Search,
     Find,
     Seach,
-    FindId
+    FindId,
+    Store,
+    Items,
+    Screen
 }

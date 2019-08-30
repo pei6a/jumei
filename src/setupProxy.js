@@ -20,6 +20,11 @@ module.exports=(app)=>{
         target:"http://s.h5.jumei.com",
         changeOrigin:true
     }))
+    //旗舰店
+    app.use(proxy("/pop",{
+        target:"http://h5.jumei.com",
+        changeOrigin:true
+    }))
     app.use(
         proxy(
         '/rewrite',{
@@ -51,6 +56,6 @@ module.exports=(app)=>{
     ));
 }
 
-    
+
 
 

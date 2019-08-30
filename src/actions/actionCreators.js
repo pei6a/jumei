@@ -45,7 +45,6 @@ export const detailAsyncPreAction=(item_id,type)=>{
     return async (dispatch)=>{
         let data=await detailApi(item_id,type)
         let dataTwo=await detailDynamicApi(item_id,type)
-        
         dispatch(detailAction(data,dataTwo))
     }
 }
