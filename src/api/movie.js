@@ -33,3 +33,20 @@ export const gloupApiItems=(item_id,type)=>http.get("/yiqituan/ajaxDetail?",{
     item_id,
     type
 })
+export const storeApi=(store_id,sort='')=>http.get('/pop/ajaxGetAllProduct?',{
+    store_id,
+    sort
+})
+export const storeItemsApi=(item_id,type)=>http.get('/product/ajaxStaticDetail?',{
+    item_id,
+    type
+})
+//http://h5.jumei.com/product/ajaxStaticDetail?item_id=ht20190826152007p4906966&type=global_pop
+export const storedApi=(store_id,sort=20)=>http.get('/pop/ajaxGetAllProduct?',{
+    store_id,
+    sort
+})
+export const storedGdApi=(store_id,sort=21)=>http.get('/pop/ajaxGetAllProduct?',{
+    store_id,
+    sort
+})

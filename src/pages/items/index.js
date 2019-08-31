@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 class Items extends Component {
     render() {
         let { itemsList,list,imgs,info,buy} = this.props;
-        console.log(imgs.img,777)
         return (
             <ItemsStyle>
                 <div className="items">
@@ -106,8 +105,11 @@ class Items extends Component {
                             </li>
                         </ul>
                     </div>
-                        <div className="dianpu">
-                        <a href="">
+                        <div className="dianpu"  onClick={this.props.handlerToDianPu.bind(
+                            this,
+                            info.store_id
+                            )}>
+                        <a>
                             <div className="imgs">
                                <img src="http://mp4.jmstatic.com/pop_store/000/008/8150_std/5ce789133eadf_320_320.jpg@base@tag=imgScale&w=640&q=90?1564727442" alt=""/>
                             </div>

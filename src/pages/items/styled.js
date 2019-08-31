@@ -12,10 +12,8 @@ export const ItemsStyle=styled.div`
         .title{
             height:0.7rem;
             width:100%;
-            
             position: relative;
             top:0;
-            
             img{
                 height:0.5rem;
                 width:0.5rem;
