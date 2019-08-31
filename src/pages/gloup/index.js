@@ -2,7 +2,6 @@ import React,{Component} from "react";
 import {GloupStyle} from './styled';
 import {gloupApi,gloupApim,gloupApimz,gloupApixb,gloupApisp,gloupApism,gloupApijju,gloupApinz,gloupApibj,gloupApiny,gloupApixl,gloupApihw,gloupApixq} from '@api/movie';
 import BScrollComponent from "@common/bscroll";
-
 import {mapStateToProps,mapDispatchToProps} from './connect';
 import { connect } from "react-redux";
 class Gloup extends Component{
@@ -460,7 +459,7 @@ class Gloup extends Component{
         this.refs.bscroll.handlepullingDown(()=>{
             var arr = [1,2,3,4,5,6];
             var index = parseInt(Math.random()*7);
-            this.handleGloupGetData(arr[index],0,"update");
+            this.handleGloupGetData(arr[index]);
         })
     }
     async handleGloupGetData(page){
@@ -479,7 +478,7 @@ class Gloup extends Component{
         let dataxq=await gloupApixq();
         if(data){
             this.setState({
-                gloupList: [...data.data],
+                gloupList: [...this.state.gloupList,...data.data],
                 gloupApimz:datamz.data,
                 gloupApim:datam.data,
                 gloupApixb:dataxb.data,
@@ -496,7 +495,7 @@ class Gloup extends Component{
             })
         }else{
             this.setState({
-                gloupList: [...this.state.gloupList,...data],
+                gloupList: [...this.state.gloupList,...data.data],
                 page:++page
             })
         }

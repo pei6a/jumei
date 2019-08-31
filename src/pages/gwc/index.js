@@ -5,17 +5,9 @@ import { mapStateToProps, mapDispatchToProps } from './connect';
 import { NavLink } from 'react-router-dom';
 class Gwc extends Component {
     state = {
-        selectedAll: true,
-        name: "",
-        price: "",
-        img: "",
-        good:[],
-        list:[]
     }
     render() {
-        let { selectedAll ,good} = this.state;
-        good.push(this.props.match.params)
-        console.log(this.state.good,7777)
+        let {goods,selectedAll,list}=this.props;
         return (
             <GwcStyle>
                 <div className="tit">
@@ -25,23 +17,22 @@ class Gwc extends Component {
                 </div>
                 <div className="select">
                     {
-                        good.map((item,index)=>(
+                        goods.map((item,index)=>(
                             <div className="goods" key={index}>
-                                <input type="checkbox" />
+                                <input type="checkbox" checked={item.flag} onChange={this.props.handlerInput.bind(this,index)}/>
                                 <div className="goods_item">
                                     <div className="goods_items">
-                                        <img src="http://mp5.jmstatic.com/product/002/032/2032762_spu_normal/2032762_800_800.jpg?imageView2/2/w/320/q/90" alt="" />
+                                        <img src="http://mp5.jmstatic.com/product/196/785/df4201174196785146_std/s_df4201174196785146_800_800.jpg?imageView2/2/w/320/q/90" alt="" />
                                         <div className="items">
-                                            <span>
-                                                <span>极速免税</span>{item.name}
-                                    </span>
+                                                <span><i>极速免税</i>{item.name}</span>
                                             <div className="ml">
-                                                <span>50ml</span>
-                                                <span><img src="./img/close2.png" alt="" />1</span>
+                                               <button onClick={this.props.handlerJ.bind(this,index)}>-</button>
+                                               <input type="text" value={item.num} onChange={this.handlerAdd.bind(this)}/>
+                                               <button onClick={this.props.handlerA.bind(this,index)}>+</button>
                                             </div>
                                             <div className="bianji">
                                                 <span>{item.price}</span>
-                                                <span>编辑</span>
+                                                <span onClick={this.props.handlerDel.bind(this,index)}>删除</span>
                                             </div>
                                         </div>
                                     </div>
@@ -50,24 +41,42 @@ class Gwc extends Component {
                         ))
                     }
                 </div>
-                <div className="jiesuan">
-                    <div className="left">
-                        <input type="checkbox" checked={selectedAll} onChange={this.handlerClick.bind(this)} />全选
-                        <p>合计<span>￥599</span></p>
-                    </div>
-                    <div className="right">去结算(1)</div>
-                </div>
+                {
+                    goods.map((item,index)=>(
+                        <div className="jiesuan" key={index}>
+                            <div className="left">
+                            <input type="checkbox" checked={selectedAll} onChange={this.props.handleSelectedChange.bind(this)}/>全选
+                                <p>合计<span>{goods.goodsPrice}</span></p>
+                            </div>
+                            <div className="right">去结算({goods.num})</div>
+                        </div>
+                    ))
+                }
             </GwcStyle>
         )
     }
-    handlerClick() {
-        this.setState({
-            selectedAll: !this.state.selectedAll
-        })
-    }
-    // componentDidMount(){
-    //     let{name,price,img}=this.props.match.params;
-    //     this.props.gwcList(name,price,img)
+    // handlerClick(){
+    //     this.setState({
+    //         selectedAll:!this.state.selectedAll
+    //     })
     // }
+    handlerAdd(e){
+        let num=e.target.value;
+    }
+    // componentWillUnmount(){
+    //     let {name,price,img}=this.props.match.params;
+    //     this.props.handlerSave(name,price,img)
+    // }
+    componentDidMount(){
+        let {name,price,img}=this.props.match.params;
+        this.props.handlerSave(name,price,img)
+        this.props.handlerUpdata();
+        this.forceUpdate()
+    }
+    shouldComponentUpdate(){
+        this.props.handlerUpdata();
+        this.forceUpdate()
+        return true;
+    }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Gwc)

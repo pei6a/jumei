@@ -61,18 +61,38 @@ export const GwcStyle=styled.div`
                         float:right;
                         span{
                             font-size:0.12rem;
-                            span{
+                            overflow:hidden;
+                            height:0.3rem;
+                            width:100%;
+                            display:block;
+                            i{
                                 color:#fe4070;
                             }
                         }
                         .ml{
                             height:0.12rem;
                             width:100%;
-                            display:flex;
-                            justify-content:space-between;
                             img{
                                 height:0.12rem;
                                 width:0.12rem;
+                            }
+                            button{
+                                height:0.12rem;
+                                width:0.15rem;
+                                right:0.05rem;
+                                line-height:0.12rem;
+                                float:left;
+                                border:none;
+                            }
+                            input{
+                                height:0.12rem;
+                                width:0.3rem;
+                                float:left;
+                                margin-top:0;
+                                border:none;
+                                background:#ccc;
+                                text-align:center;
+                                color:#c33;
                             }
                         }
                         .bianji{
