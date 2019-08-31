@@ -1,5 +1,5 @@
 import {homeIndexNowType,homeIndexPreType,homeSearchType,
-    detailPageType,shopAllGoodsPage,shopFilterType}from './actionTypes'
+    detailPageType,shopAllGoodsPage}from './actionTypes'
 import {HomePageListApi,HomePagePreApi,searchApi,detailApi,
     detailDynamicApi,shopAllGoodsApi} from '../api/home_api/home_api'
 // 上新
